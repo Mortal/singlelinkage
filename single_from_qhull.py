@@ -71,6 +71,10 @@ def main() -> None:
     print(b)
     assert np.array_equal(a, b)
 
+    np.random.seed(seed)
+    pts = np.random.random((64000, 2))
+    print(single_linkage(pts)[-1])
+
 
 if __name__ == "__main__":
     main()
