@@ -149,6 +149,16 @@ def main() -> None:
     t2 = time.time()
     print(f"Time to run N log N time algorithm on {pts.shape[0]} {pts.shape[1]}-d points: {t2 - t1} s")
 
+    from sklearn.cluster import AgglomerativeClustering  # type: ignore[import]
+
+    for n in (10000, 20000, 40000):
+        np.random.seed(seed)
+        pts = np.random.random((n, 2))
+        t1 = time.time()
+        print(AgglomerativeClustering(linkage="single").fit(pts))
+        t2 = time.time()
+        print(f"Time to run AgglomerativeClustering time algorithm on {pts.shape[0]} {pts.shape[1]}-d points: {t2 - t1} s")
+
 
 if __name__ == "__main__":
     main()
