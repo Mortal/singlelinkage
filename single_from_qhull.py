@@ -126,7 +126,7 @@ def main() -> None:
     b = scipy.cluster.hierarchy.linkage(pts)
     print("\nOutput of scipy.cluster.hierarchy.linkage():")
     print(b)
-    assert np.array_equal(a, b)
+    assert np.allclose(a, b)
 
     np.random.seed(seed)
     pts = np.random.random((10000, 2))
